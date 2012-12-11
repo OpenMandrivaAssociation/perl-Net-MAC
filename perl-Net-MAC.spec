@@ -1,52 +1,40 @@
-%define perl_vendorlib %(eval "`%{__perl} -V:installvendorlib`"; echo $installvendorlib)
-%define perl_vendorarch %(eval "`%{__perl} -V:installvendorarch`"; echo $installvendorarch)
+%define upstream_name Net-MAC
+%define upstream_version 2.103622
 
-%define real_name Net-MAC
-
-Summary: Perl extension for representing and manipulating MAC addresses
-Name: perl-Net-MAC
-Version: 2.103622
-Release: %mkrel 1
-License: LGPL
-Group: Development/Perl
-URL: http://search.cpan.org/dist/Net-MAC/
-Source: http://www.cpan.org/modules/by-module/Net/Net-MAC-%{version}.tar.gz
-BuildRoot: %{_tmppath}/%{name}-%{version}-%{release}-root
-BuildArch: noarch
-BuildRequires: perl >= 2:5.8.0
-Requires: perl >= 2:5.8.0
+Summary:	Perl extension for representing and manipulating MAC addresses
+Name:		perl-%{upstream_name}
+Version:	%perl_convert_version %{upstream_version}
+Release:	2
+License:	LGPL
+Group:		Development/Perl
+URL:		http://search.cpan.org/dist/Net-MAC/
+Source: 	http://www.cpan.org/modules/by-module/Net/%{upstream_name}-%{upstream_version}.tar.gz
+BuildArch:	noarch
+BuildRequires:	perl-devel
 
 %description
 Perl extension for representing and manipulating MAC addresses.
 
 %prep
-%setup -q -n %{real_name}-%{version}
+%setup -q -n %{upstream_name}-%{upstream_version}
 
 %build
-%{__perl} Makefile.PL INSTALLDIRS="vendor" PREFIX="%{buildroot}%{_prefix}"
-%{__make} %{?_smp_mflags}
+perl Makefile.PL INSTALLDIRS=vendor
+%make
 
 %install
-%{__rm} -rf %{buildroot}
-%{__make} pure_install
-
-### Clean up buildroot
-find %{buildroot} -name .packlist -exec %{__rm} {} \;
-
-%clean
-%{__rm} -rf %{buildroot}
+%makeinstall_std
 
 %files
-%defattr(-, root, root, 0755)
 %doc Changes MANIFEST META.yml README
-%doc %{_mandir}/man3/Net::MAC.3pm*
-%dir %{perl_vendorlib}/Net/
-#%{perl_vendorlib}/Net/MAC/
+%{_mandir}/man3/Net::MAC.3pm*
 %{perl_vendorlib}/Net/MAC.pm
 
-%changelog
-* Mon Jun  1 2009 Dries Verachtert <dries@ulyssis.org> - 1.5-1 - 7981/dag
-- Updated to release 1.5.
 
-* Tue Sep 16 2008 Dag Wieers <dag@wieers.com> - 1.4-1
-- Initial package. (using DAR)
+
+%changelog
+* Tue Sep 27 2011 Leonardo Coelho <leonardoc@mandriva.com> 2.103622-1mdv2012.0
++ Revision: 701555
+- first mandriva version
+- Created package structure for 'perl-Net-MAC'.
+
