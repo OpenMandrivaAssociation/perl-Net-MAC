@@ -4,7 +4,7 @@
 Summary:	Perl extension for representing and manipulating MAC addresses
 Name:		perl-%{upstream_name}
 Version:	%perl_convert_version %{upstream_version}
-Release:	2
+Release:	3
 License:	LGPL
 Group:		Development/Perl
 URL:		http://search.cpan.org/dist/Net-MAC/
