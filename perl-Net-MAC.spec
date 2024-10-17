@@ -7,7 +7,7 @@ Version:	%perl_convert_version %{upstream_version}
 Release:	4
 License:	LGPL
 Group:		Development/Perl
-URL:		http://search.cpan.org/dist/Net-MAC/
+URL:		https://search.cpan.org/dist/Net-MAC/
 Source: 	http://www.cpan.org/modules/by-module/Net/%{upstream_name}-%{upstream_version}.tar.gz
 BuildArch:	noarch
 BuildRequires:	perl-devel
