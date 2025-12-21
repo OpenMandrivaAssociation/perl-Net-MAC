@@ -10,6 +10,7 @@ Group:		Development/Perl
 URL:		https://search.cpan.org/dist/Net-MAC/
 Source: 	http://www.cpan.org/modules/by-module/Net/%{upstream_name}-%{upstream_version}.tar.gz
 BuildArch:	noarch
+BuildRequires:	make
 BuildRequires:	perl-devel
 
 %description
