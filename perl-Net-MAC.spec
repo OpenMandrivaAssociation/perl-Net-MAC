@@ -3,12 +3,12 @@
 
 Summary:	Perl extension for representing and manipulating MAC addresses
 Name:		perl-%{upstream_name}
-Version:	%perl_convert_version %{upstream_version}
-Release:	4
+Version:	%{upstream_version}
+Release:	5
 License:	LGPL
 Group:		Development/Perl
-URL:		https://search.cpan.org/dist/Net-MAC/
-Source: 	http://www.cpan.org/modules/by-module/Net/%{upstream_name}-%{upstream_version}.tar.gz
+URL:		https://github.com/ollyg/Net-MAC/wiki
+Source: 	https://cpan.metacpan.org/authors/id/O/OL/OLIVER/Net-MAC-%{upstream_version}.tar.gz
 BuildArch:	noarch
 BuildRequires:	make
 BuildRequires:	perl-devel
